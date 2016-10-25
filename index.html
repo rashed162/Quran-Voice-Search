@@ -1,0 +1,108 @@
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="myscripts.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css">
+  
+
+  <script>
+    $(function() {
+      var availablesay = [
+        "hello",
+        "hi",
+        "bye",
+        "what are you",
+        "who are you",
+        "what is life",
+        "open the pod bay doors",
+        "what is your favorite color",
+        "i love you",
+        "how are you",
+        "what is love",
+        "do i have a life",
+        "let's talk",
+      ];
+      $("#say").autocomplete({
+        source: availablesay
+      });
+    });
+  </script>
+</head>
+
+
+<div class="w3-card-4 relative" style="width:90%">
+    <header class="w3-container w3-light-grey">
+      <h3>Talk with me</h3>
+    </header>
+    <div class="w3-container">
+    
+      <hr>
+      <img src="large.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-top" style="width:60px">
+      <p id ="response"></p><br>
+    </div>
+    <button class="w3-btn-block w3-dark-gray"></button>
+  </div>
+</div>
+
+<!-- clock Start-->
+<div id="clockbox" style="font:20pt lato; color:black; font-weight:200; Opacity:0.5; position:absolute;  left:15px; top:4px; float:left;">
+  <script type="text/javascript">
+    function GetClock() {
+      var d = new Date();
+      var nhour = d.getHours(),
+        nmin = d.getMinutes(),
+        ap;
+      if (nhour == 0) {
+        ap = " AM";
+        nhour = 12;
+      } else if (nhour < 12) {
+        ap = " AM";
+      } else if (nhour == 12) {
+        ap = " PM";
+      } else if (nhour > 12) {
+        ap = " PM";
+        nhour -= 12;
+      }
+
+      if (nmin <= 9) nmin = "0" + nmin;
+
+      document.getElementById('clockbox').innerHTML = "" + nhour + ":" + nmin + ap + "";
+    }
+
+    window.onload = function() {
+      GetClock();
+      setInterval(GetClock, 1000);
+    }
+  </script>
+
+</div><!-- clock End-->
+
+
+<div class="wrapper" onload="myFunction()">
+  <div class="loading-wrapper">
+    <div class="loader">
+      <div class="inner"></div>
+    </div>
+  </div>
+</div>
+<center>
+
+</center>
+<div style="position:relative; top:50%; ">
+
+  <center>
+
+    <p id="response"  >Hello There!</p>
+
+   <!-- <textbox id="talk" class ="design" method="get" opacity="0.3" target="_blank">
+     <input id="say" class ="design" placeholder="Talk To Miku" onkeypress="return makeresponse()" ;></input>
+    <button class="w3-btn w3-teal w3-round-xxlarge" id="rec">Speak</button>-->
+    <input  class="w3-btn" id="input" type="text"> <button class="w3-btn w3-teal w3-round-xxlarge" id="rec">Speak</button>
+    </textbox>
+  </center></div>
